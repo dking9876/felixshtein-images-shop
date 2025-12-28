@@ -1,0 +1,158 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.productCard {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.productCard.inactive {
+    opacity: 0.6;
+}
+
+.productImage {
+    position: relative;
+    aspect-ratio: 1;
+    background: #f5f5f5;
+}
+
+.inactiveOverlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.productInfo {
+    padding: 1rem;
+}
+
+.productInfo h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.price {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.productActions {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0 1rem 1rem;
+}
+
+.editBtn,
+.toggleBtn,
+.deleteBtn {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.editBtn {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.editBtn:hover {
+    background: #e0e0e0;
+}
+
+.toggleBtn {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.toggleBtn:hover {
+    background: #fde68a;
+}
+
+.deleteBtn {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.deleteBtn:hover {
+    background: #fee2e2;
+}
+
+/* Modal */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+}
+
+.modal {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal h2 {
+    margin-bottom: 1.5rem;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+.formGroup label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 0.25rem;
+}
+
+.modalActions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.modalActions button {
+    flex: 1;
+}

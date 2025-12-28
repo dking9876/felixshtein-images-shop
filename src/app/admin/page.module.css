@@ -1,0 +1,57 @@
+.loginPage {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 2rem;
+}
+
+.loginCard {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.loginHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.loginHeader h1 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.loginHeader p {
+    color: #666;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.formGroup label {
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.error {
+    background: #fef2f2;
+    color: #dc2626;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    text-align: center;
+}

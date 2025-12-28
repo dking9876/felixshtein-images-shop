@@ -1,0 +1,121 @@
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.pricingGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #eee;
+}
+
+.formGroup {
+    margin-bottom: 1rem;
+}
+
+.formGroup label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.hint {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 1rem;
+}
+
+.multiplierRow {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 0.5fr;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.multiplierRow:last-child {
+    border-bottom: none;
+}
+
+.multiplierInput {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.multiplierLabel {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-align: right;
+}
+
+/* Price Matrix */
+.matrixCard {
+    grid-column: 1 / -1;
+}
+
+.priceMatrix {
+    overflow-x: auto;
+}
+
+.matrixHeader,
+.matrixRow {
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+}
+
+.matrixHeader {
+    font-weight: 600;
+    color: #666;
+    font-size: 0.9rem;
+    border-bottom: 2px solid #eee;
+}
+
+.matrixRow {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.matrixRow:last-child {
+    border-bottom: none;
+}
+
+.matrixPrice {
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+@media (max-width: 1024px) {
+    .pricingGrid {
+        grid-template-columns: 1fr;
+    }
+}

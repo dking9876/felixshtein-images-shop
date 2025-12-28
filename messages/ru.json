@@ -1,0 +1,97 @@
+{
+    "common": {
+        "shopName": "Феликс Штейн",
+        "tagline": "Уникальное настенное искусство для вашего пространства",
+        "home": "Главная",
+        "shop": "Магазин",
+        "cart": "Корзина",
+        "checkout": "Оформление",
+        "admin": "Админ",
+        "language": "Язык",
+        "currency": "Валюта",
+        "loading": "Загрузка...",
+        "error": "Ошибка",
+        "success": "Успешно",
+        "cancel": "Отмена",
+        "save": "Сохранить",
+        "delete": "Удалить",
+        "edit": "Редактировать",
+        "add": "Добавить",
+        "search": "Поиск",
+        "filter": "Фильтр",
+        "sort": "Сортировка",
+        "viewAll": "Смотреть все",
+        "backToHome": "На главную",
+        "continuesShopping": "Продолжить покупки"
+    },
+    "home": {
+        "heroTitle": "Превратите ваши стены в искусство",
+        "heroSubtitle": "Премиальные принты на холсте, металле, дереве и других материалах",
+        "shopNow": "В магазин",
+        "featured": "Избранные работы",
+        "newArrivals": "Новинки"
+    },
+    "product": {
+        "selectSize": "Выберите размер",
+        "selectMaterial": "Выберите материал",
+        "price": "Цена",
+        "addToCart": "В корзину",
+        "outOfStock": "Нет в наличии",
+        "description": "Описание",
+        "specifications": "Характеристики",
+        "material": "Материал",
+        "size": "Размер",
+        "quantity": "Количество"
+    },
+    "cart": {
+        "yourCart": "Ваша корзина",
+        "emptyCart": "Ваша корзина пуста",
+        "subtotal": "Подытог",
+        "shipping": "Доставка",
+        "flatRate": "Фиксированная стоимость доставки в Израиль",
+        "total": "Итого",
+        "proceedToCheckout": "Оформить заказ",
+        "remove": "Удалить",
+        "updateQuantity": "Изменить количество"
+    },
+    "checkout": {
+        "title": "Оформление заказа",
+        "billingDetails": "Платежные данные",
+        "shippingAddress": "Адрес доставки",
+        "orderSummary": "Сводка заказа",
+        "paymentMethod": "Способ оплаты",
+        "placeOrder": "Оформить заказ",
+        "fullName": "Полное имя",
+        "email": "Эл. почта",
+        "phone": "Телефон",
+        "address": "Адрес",
+        "city": "Город",
+        "zipCode": "Индекс",
+        "country": "Страна",
+        "payWithPayPal": "Оплатить через PayPal",
+        "orderComplete": "Заказ оформлен!",
+        "thankYou": "Спасибо за заказ",
+        "orderNumber": "Номер заказа",
+        "confirmationEmail": "Письмо с подтверждением отправлено на вашу почту."
+    },
+    "materials": {
+        "canvas": "Холст",
+        "framed": "В раме",
+        "paper_glossy": "Фотобумага (глянец)",
+        "paper_matte": "Фотобумага (матовая)",
+        "metal": "На металле",
+        "acrylic": "На акриле",
+        "wood": "На дереве"
+    },
+    "sizes": {
+        "small": "Маленький (20x30 см)",
+        "medium": "Средний (40x60 см)",
+        "large": "Большой (60x90 см)"
+    },
+    "footer": {
+        "copyright": "© 2024 Феликс Штейн. Все права защищены.",
+        "contact": "Контакты",
+        "shipping": "Доставка и возврат",
+        "privacy": "Политика конфиденциальности"
+    }
+}

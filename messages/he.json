@@ -1,0 +1,97 @@
+{
+    "common": {
+        "shopName": "פליקס שטיין",
+        "tagline": "אמנות קיר ייחודית לחלל שלך",
+        "home": "דף הבית",
+        "shop": "חנות",
+        "cart": "עגלה",
+        "checkout": "תשלום",
+        "admin": "ניהול",
+        "language": "שפה",
+        "currency": "מטבע",
+        "loading": "טוען...",
+        "error": "שגיאה",
+        "success": "הצלחה",
+        "cancel": "ביטול",
+        "save": "שמור",
+        "delete": "מחק",
+        "edit": "ערוך",
+        "add": "הוסף",
+        "search": "חיפוש",
+        "filter": "סינון",
+        "sort": "מיון",
+        "viewAll": "צפה בהכל",
+        "backToHome": "חזרה לדף הבית",
+        "continuesShopping": "המשך בקניות"
+    },
+    "home": {
+        "heroTitle": "הפכו את הקירות שלכם לאמנות",
+        "heroSubtitle": "הדפסים פרמיום על קנבס, מתכת, עץ ועוד",
+        "shopNow": "קנה עכשיו",
+        "featured": "יצירות נבחרות",
+        "newArrivals": "חדשים באתר"
+    },
+    "product": {
+        "selectSize": "בחר גודל",
+        "selectMaterial": "בחר חומר",
+        "price": "מחיר",
+        "addToCart": "הוסף לעגלה",
+        "outOfStock": "אזל המלאי",
+        "description": "תיאור",
+        "specifications": "מפרט",
+        "material": "חומר",
+        "size": "גודל",
+        "quantity": "כמות"
+    },
+    "cart": {
+        "yourCart": "העגלה שלך",
+        "emptyCart": "העגלה שלך ריקה",
+        "subtotal": "סכום ביניים",
+        "shipping": "משלוח",
+        "flatRate": "משלוח בתעריף קבוע לישראל",
+        "total": "סה\"כ",
+        "proceedToCheckout": "המשך לתשלום",
+        "remove": "הסר",
+        "updateQuantity": "עדכן כמות"
+    },
+    "checkout": {
+        "title": "תשלום",
+        "billingDetails": "פרטי חיוב",
+        "shippingAddress": "כתובת למשלוח",
+        "orderSummary": "סיכום הזמנה",
+        "paymentMethod": "אמצעי תשלום",
+        "placeOrder": "בצע הזמנה",
+        "fullName": "שם מלא",
+        "email": "אימייל",
+        "phone": "טלפון",
+        "address": "כתובת",
+        "city": "עיר",
+        "zipCode": "מיקוד",
+        "country": "מדינה",
+        "payWithPayPal": "שלם עם PayPal",
+        "orderComplete": "ההזמנה הושלמה!",
+        "thankYou": "תודה על ההזמנה",
+        "orderNumber": "מספר הזמנה",
+        "confirmationEmail": "אימייל אישור נשלח לכתובת שלך."
+    },
+    "materials": {
+        "canvas": "קנבס",
+        "framed": "הדפס ממוסגר",
+        "paper_glossy": "נייר צילום (מבריק)",
+        "paper_matte": "נייר צילום (מט)",
+        "metal": "הדפס מתכת",
+        "acrylic": "הדפס אקרילי",
+        "wood": "הדפס עץ"
+    },
+    "sizes": {
+        "small": "קטן (20x30 ס\"מ)",
+        "medium": "בינוני (40x60 ס\"מ)",
+        "large": "גדול (60x90 ס\"מ)"
+    },
+    "footer": {
+        "copyright": "© 2024 פליקס שטיין. כל הזכויות שמורות.",
+        "contact": "יצירת קשר",
+        "shipping": "משלוחים והחזרות",
+        "privacy": "מדיניות פרטיות"
+    }
+}

@@ -1,0 +1,115 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model Product {
+  id          String      @id @default(uuid())
+  name        String
+  nameHe      String?
+  nameRu      String?
+  description String?
+  descriptionHe String?
+  descriptionRu String?
+  basePrice   Float
+  imageUrl    String
+  featured    Boolean     @default(false)
+  active      Boolean     @default(true)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  orderItems  OrderItem[]
+}
+
+model Material {
+  id              String      @id @default(uuid())
+  name            String
+  nameHe          String?
+  nameRu          String?
+  priceMultiplier Float       @default(1.0)
+  active          Boolean     @default(true)
+  orderItems      OrderItem[]
+}
+
+model Size {
+  id              String      @id @default(uuid())
+  dimensions      String      // e.g., "20x30"
+  priceMultiplier Float       @default(1.0)
+  active          Boolean     @default(true)
+  orderItems      OrderItem[]
+}
+
+model Order {
+  id              String      @id @default(uuid())
+  orderNumber     String      @unique
+  status          OrderStatus @default(PENDING)
+  
+  // Customer info (guest checkout)
+  customerEmail   String
+  customerName    String
+  customerPhone   String?
+  
+  // Shipping address
+  shippingAddress String
+  shippingCity    String
+  shippingZip     String?
+  shippingCountry String      @default("Israel")
+  
+  // Payment
+  paymentMethod   String      @default("paypal")
+  paymentId       String?
+  
+  // Totals
+  subtotal        Float
+  shippingCost    Float       @default(10.0)
+  total           Float
+  currency        String      @default("USD")
+  
+  // Timestamps
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  items           OrderItem[]
+}
+
+model OrderItem {
+  id         String   @id @default(uuid())
+  quantity   Int      @default(1)
+  unitPrice  Float
+  totalPrice Float
+  
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  orderId    String
+  
+  product    Product  @relation(fields: [productId], references: [id])
+  productId  String
+  
+  material   Material @relation(fields: [materialId], references: [id])
+  materialId String
+  
+  size       Size     @relation(fields: [sizeId], references: [id])
+  sizeId     String
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  PROCESSING
+  SHIPPED
+  DELIVERED
+  CANCELLED
+}
