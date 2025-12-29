@@ -26,7 +26,12 @@ export default function AdminLayout({
         }
     }, [router, pathname])
 
-    const handleLogout = () => {
+    const handleLogout = async () => {
+        try {
+            await fetch('/api/auth/logout', { method: 'POST' })
+        } catch (err) {
+            console.error('Logout error:', err)
+        }
         localStorage.removeItem('adminLoggedIn')
         setIsLoggedIn(false)
         router.push('/admin')

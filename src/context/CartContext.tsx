@@ -15,6 +15,10 @@ export interface CartItem {
     unitPrice: number
 }
 
+// Security: Quantity limits to prevent abuse
+const MAX_QUANTITY_PER_ITEM = 10
+const MAX_TOTAL_ITEMS = 20
+
 interface CartContextType {
     items: CartItem[]
     addItem: (item: Omit<CartItem, 'id'>) => void
@@ -50,6 +54,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }, [items, loaded])
 
     const addItem = (item: Omit<CartItem, 'id'>) => {
+        // Security: Check total items limit
+        const currentTotalItems = items.reduce((sum, i) => sum + i.quantity, 0)
+        if (currentTotalItems + item.quantity > MAX_TOTAL_ITEMS) {
+            console.warn('Cart limit reached: Maximum items exceeded')
+            return
+        }
+
         // Check if same product with same size and material exists
         const existing = items.find(
             i => i.productId === item.productId &&
@@ -58,14 +69,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
         )
 
         if (existing) {
+            // Security: Enforce per-item quantity limit
+            const newQuantity = Math.min(existing.quantity + item.quantity, MAX_QUANTITY_PER_ITEM)
             setItems(items.map(i =>
                 i.id === existing.id
-                    ? { ...i, quantity: i.quantity + item.quantity }
+                    ? { ...i, quantity: newQuantity }
                     : i
             ))
         } else {
+            // Security: Enforce per-item quantity limit
             const newItem: CartItem = {
                 ...item,
+                quantity: Math.min(item.quantity, MAX_QUANTITY_PER_ITEM),
                 id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
             }
             setItems([...items, newItem])
@@ -81,8 +96,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
             removeItem(id)
             return
         }
+        // Security: Enforce per-item quantity limit
+        const limitedQuantity = Math.min(quantity, MAX_QUANTITY_PER_ITEM)
         setItems(items.map(item =>
-            item.id === id ? { ...item, quantity } : item
+            item.id === id ? { ...item, quantity: limitedQuantity } : item
         ))
     }
 

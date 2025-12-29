@@ -117,10 +117,14 @@ function CheckoutContent() {
                 body: JSON.stringify({
                     amount: total,
                     currency: 'USD',
+                    // Send all IDs for server-side price verification
                     items: items.map(item => ({
-                        name: item.productName,
+                        productId: item.productId,
+                        sizeId: item.sizeId,
+                        materialId: item.materialId,
                         quantity: item.quantity,
-                        price: item.unitPrice,
+                        name: item.productName,
+                        price: item.unitPrice, // Will be verified server-side
                     })),
                     customerInfo: {
                         name: form.fullName,

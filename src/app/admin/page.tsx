@@ -16,14 +16,24 @@ export default function AdminLoginPage() {
         setError('')
         setLoading(true)
 
-        // Simple hardcoded auth for demo
-        // In production, this would call an API endpoint
-        if (email === 'dwaitser@gmail.com' && password === '1234') {
-            // Set admin session
-            localStorage.setItem('adminLoggedIn', 'true')
-            router.push('/admin/dashboard')
-        } else {
-            setError('Invalid email or password')
+        try {
+            const response = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password }),
+            })
+
+            const data = await response.json()
+
+            if (response.ok) {
+                // Set admin session in localStorage for UI state
+                localStorage.setItem('adminLoggedIn', 'true')
+                router.push('/admin/dashboard')
+            } else {
+                setError(data.error || 'Invalid email or password')
+            }
+        } catch (err) {
+            setError('Something went wrong. Please try again.')
         }
 
         setLoading(false)

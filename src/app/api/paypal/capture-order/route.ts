@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { z } from 'zod'
 
 // PayPal API configuration
 const PAYPAL_API_URL = process.env.PAYPAL_MODE === 'live'
@@ -7,6 +8,11 @@ const PAYPAL_API_URL = process.env.PAYPAL_MODE === 'live'
 
 const PAYPAL_CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || ''
 const PAYPAL_CLIENT_SECRET = process.env.PAYPAL_CLIENT_SECRET || ''
+
+// Input validation schema
+const captureOrderSchema = z.object({
+    orderId: z.string().min(1, 'Order ID required').max(100).regex(/^[A-Z0-9-]+$/, 'Invalid order ID format'),
+})
 
 // Get PayPal access token
 async function getAccessToken(): Promise<string> {
@@ -28,19 +34,30 @@ async function getAccessToken(): Promise<string> {
 // Capture PayPal order (complete the payment)
 export async function POST(request: NextRequest) {
     try {
-        const { orderId } = await request.json()
+        const body = await request.json()
 
-        if (!orderId) {
-            return NextResponse.json({ error: 'Order ID required' }, { status: 400 })
+        // Validate input
+        const validation = captureOrderSchema.safeParse(body)
+
+        if (!validation.success) {
+            return NextResponse.json(
+                { error: 'Invalid input', details: validation.error.flatten() },
+                { status: 400 }
+            )
         }
 
-        // Demo mode check
+        const { orderId } = validation.data
+
+        // Demo mode check - ONLY allowed in development
         if (orderId.startsWith('DEMO-')) {
+            if (process.env.NODE_ENV === 'production') {
+                return NextResponse.json({ error: 'Demo mode not allowed in production' }, { status: 403 })
+            }
             const orderNumber = `FS-${Date.now().toString(36).toUpperCase()}`
             return NextResponse.json({
                 status: 'COMPLETED',
                 orderNumber,
-                message: 'Demo order completed successfully'
+                message: 'Demo order completed successfully (development only)'
             })
         }
 
